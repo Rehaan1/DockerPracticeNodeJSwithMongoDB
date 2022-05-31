@@ -15,5 +15,30 @@ DNS COMMAND TO LOOK UP APP (using alias defined in line 9) IP ADDRESS INSIDE NET
 TO RUN MONGODB CONTAINER IN SAME NETWORK :- docker run -d -p 27017:27017 --network trial-app-network --network-alias mongo --name mongodb mon
 go:latest
 
+TO RENAME :- docker tag trial-app rehaanmazid009/trial-app
 
+TO PUSH TO DOCKER HUB :- docker push rehaanmazid009/trial-app
 
+-----------------------------------------------------
+## FOR DEFINING NETWORK IN DOCKER COMPOSE
+-----------------------------------------------------
+services on the same Docker network can find each other by using service names as DNS names. Use that to reference the specific container you described, including when it references itself.
+
+For example, in the following made up Docker Compose file, if someservice was a web server serving on port 80, anotherservice service would be able to connect to it at http://someservice/, because they're on a common network the_net.
+
+version: '3'
+
+services:
+  someservice:
+    image: someserviceimage
+    networks:
+      - the_net
+
+  anotherservice:
+    image: anotherserviceimage
+    networks:
+      - the_net
+
+networks:
+  the_net:
+someservice can also reach itself at http://someservice/

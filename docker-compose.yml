@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  app:
+    image: rehaanmazid009/trial-app
+    container_name: trial-app
+    ports:
+      - 3000:3000
+    networks:
+      - app-network
+  mongo:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    networks:
+      - app-network
+
+networks:
+  app-network:
