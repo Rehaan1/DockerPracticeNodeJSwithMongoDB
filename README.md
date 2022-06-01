@@ -19,6 +19,10 @@ TO RENAME :- docker tag trial-app rehaanmazid009/trial-app
 
 TO PUSH TO DOCKER HUB :- docker push rehaanmazid009/trial-app
 
+TO CREATE VOLUME FOR MONGODB TO PERSIST DATA :- docker volume create mongodb
+
+
+
 -----------------------------------------------------
 ## FOR DEFINING NETWORK IN DOCKER COMPOSE
 -----------------------------------------------------
